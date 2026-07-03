@@ -1,0 +1,75 @@
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 20
+        Label:
+            text: 'استشاري طبي AI'
+            font_size: 32
+            bold: True
+        Button:
+            text: 'فحص السكري'
+            on_press: app.root.current = 'diabetes'
+        Button:
+            text: 'فحص الضغط'
+            on_press: app.root.current = 'bp'
+
+<DiabetesScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+        Label: text: 'ادخل سكر الدم'
+        TextInput:
+            id: glucose
+            input_filter: 'float'
+            hint_text: 'مثال: 120'
+        TextInput:
+            id: age
+            input_filter: 'float'
+            hint_text: 'العمر'
+        TextInput:
+            id: bmi
+            input_filter: 'float'
+            hint_text: 'مؤشر الكتلة BMI'
+        Button:
+            text: 'افحص الان'
+            on_press: root.diagnose()
+        Label:
+            id: result
+            text: ''
+        Button:
+            text: 'رجوع'
+            on_press: app.root.current = 'main'
+
+<BPScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 20
+        spacing: 10
+        Label: text: 'ادخل قراءة الضغط'
+        TextInput:
+            id: sys
+            input_filter: 'float'
+            hint_text: 'الانقباضي العلوي'
+        TextInput:
+            id: dia
+            input_filter: 'float'
+            hint_text: 'الانبساطي السفلي'
+        TextInput:
+            id: age
+            input_filter: 'float'
+            hint_text: 'العمر'
+        TextInput:
+            id: chol
+            input_filter: 'float'
+            hint_text: 'الكوليسترول'
+        Button:
+            text: 'افحص الان'
+            on_press: root.diagnose()
+        Label:
+            id: result
+            text: ''
+        Button:
+            text: 'رجوع'
+            on_press: app.root.current = 'main'
